@@ -2,11 +2,13 @@ import Vue from 'vue';
 import iView from 'iview';
 import VueRouter from 'vue-router';
 import Routers from './router';
+import axios from 'axios'
 import Vuex from 'vuex';
 import Util from './libs/util';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
 
+Vue.prototype.$http = Util.ajax;
 
 Vue.use(VueRouter);
 Vue.use(Vuex);

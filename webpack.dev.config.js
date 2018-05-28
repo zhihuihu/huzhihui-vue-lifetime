@@ -33,6 +33,17 @@ module.exports = merge(webpackBaseConfig, {
         })
     ],
     devServer: {
-        port:8888
+        port:8888,
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        stats: { colors: true },
+        proxy: {
+            '/api': {
+              target: 'http://127.0.0.1:8988',
+              pathRewrite: {'^/api' : ''},
+              changeOrigin: true
+            }
+         }
     },
 });
